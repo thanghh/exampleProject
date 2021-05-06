@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dto"
+            type="com.example.domain.model.response.Article" />
+
+        <variable
+            name="onClickItem"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_100dp"
+        android:layout_marginTop="@dimen/margin_1dp"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_10dp"
+        android:onClick="@{onClickItem}"
+        app:cardCornerRadius="@dimen/margin_3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_16dp"
+            android:paddingEnd="@dimen/margin_16dp"
+            android:weightSum="1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:layout_gravity="center"
+                app:loadImageURL="@{dto.image}" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_18dp"
+                android:layout_marginEnd="@dimen/margin_16dp"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_weight="0.8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{dto.title}"
+                    android:textSize="@dimen/ts_14dp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_3dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{dto.description}"
+                    android:textSize="@dimen/ts_12dp"
+                    tools:text="description" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

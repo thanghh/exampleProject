@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="showBackIcon"
+            type="Boolean" />
+
+        <variable
+            name="onClickBackIcon"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="titleToolbar"
+            type="String" />
+    </data>
+
+<com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/purple_700"
+    android:gravity="center"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="@dimen/margin_5dp"
+            android:layout_marginEnd="@dimen/margin_5dp"
+            android:padding="8dp"
+            android:onClick="@{onClickBackIcon}"
+            android:scaleType="center"
+            android:src="@drawable/ic_back"
+            android:visibility="@{showBackIcon ? View.VISIBLE : View.GONE, default = gone}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="@{titleToolbar}"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            tools:text="Title" />
+
+    </RelativeLayout>
+</com.google.android.material.appbar.AppBarLayout>
+</layout>
